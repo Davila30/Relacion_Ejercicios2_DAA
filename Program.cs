@@ -4,11 +4,16 @@ class Program
 {
     static void Main()
     {
-        Console.Write("Introduce el primer número: ");
-        double num1 = Convert.ToDouble(Console.ReadLine());
-        Console.Write("Introduce el segundo número: ");
-        double num2 = Convert.ToDouble(Console.ReadLine());
-
-        Console.WriteLine("El número mayor es: {0}", num1 > num2 ? num1 : (num2 > num1 ? num2 : "Ambos son iguales"));
+        Console.Write("Introduce los Kilowatios consumidos: ");
+            double kw = double.Parse(Console.ReadLine()!);
+            double precioKw;
+            if (kw > 1800)
+                precioKw = 0.8;
+            else if (kw >= 1000)
+                precioKw = 0.12;
+            else
+                precioKw = 0.14;
+            double total = kw * precioKw;
+            Console.WriteLine($"Total a pagar: {total:F2}€ (precio aplicado: {precioKw}€/kW)");
     }
 }
