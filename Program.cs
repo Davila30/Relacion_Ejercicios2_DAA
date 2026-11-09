@@ -4,21 +4,32 @@ class Program
 {
     static void Main()
     {
-       int[] datos = { 45, 12, 89, 3, 27, 64, 18, 90, 5, 33 };
+       System.Collections.Stack pila = new System.Collections.Stack();
 
-            Console.WriteLine("Array desordenado original:");
-            for (int i = 0; i < datos.Length; i++)
-            {
-                Console.Write($"{datos[i]} ");
-            }
-            Console.WriteLine();
+        Console.WriteLine("Introduce 3 valores enteros para agregarlos a la pila:");
+        for (int i = 0; i < 3; i++)
+        {
+            Console.Write($"Valor {i + 1}: ");
+            int val = Convert.ToInt32(Console.ReadLine());
+            pila.Push(val);
+        }
 
-            Array.Sort(datos);
+        Console.WriteLine("\nValores actuales en la pila:");
+        foreach (var item in pila)
+        {
+            Console.WriteLine(item);
+        }
 
-            Console.WriteLine("\nArray ordenado con Array.Sort():");
-            for (int i = 0; i < datos.Length; i++)
-            {
-                Console.Write($"{datos[i]} ");
-            }
+        if (pila.Count >= 2)
+        {
+            Console.WriteLine($"\nSacando elemento (Pop): {pila.Pop()}");
+            Console.WriteLine($"Sacando elemento (Pop): {pila.Pop()}");
+        }
+
+        Console.WriteLine("\nValores de la pila tras extraer los dos elementos:");
+        foreach (var item in pila)
+        {
+            Console.WriteLine(item);
+        }
     }
 }
