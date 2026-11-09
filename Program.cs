@@ -4,18 +4,21 @@ class Program
 {
     static void Main()
     {
-       Console.Write("Introduce un número del 1 al 9: ");
-            int num = int.Parse(Console.ReadLine()!);
+       Console.Write("Introduce una cadena de texto: ");
+            string texto = Console.ReadLine()!;
 
-            if (num < 1 || num > 9)
-            {
-                Console.WriteLine("Error: el número introducido está fuera del rango permitido (1 al 9).");
-                return;
-            }
+            Console.WriteLine($"Longitud: {texto.Length}");
+            Console.WriteLine($"¿Contiene 'abc'?: {texto.Contains("abc")}");
+            Console.WriteLine($"Reemplazar 'a' por '*': {texto.Replace('a', '*').Replace('A', '*')}");
+            Console.WriteLine($"En mayúsculas: {texto.ToUpper()}");
+            Console.WriteLine($"En minúsculas: {texto.ToLower()}");
 
-            for (int i = 1; i <= 10; i++)
-            {
-                Console.WriteLine($"{num} x {i} = {num * i}");
-            }
+            if (texto.Length > 0)
+                Console.WriteLine($"Eliminar carácter en posición 0: {texto.Remove(0, 1)}");
+
+            if (texto.Length >= 4)
+                Console.WriteLine($"Subcadena (inicio 1, longitud 3): {texto.Substring(1, 3)}");
+            else
+                Console.WriteLine("Cadena demasiado corta para extraer la subcadena de prueba.");
     }
 }
